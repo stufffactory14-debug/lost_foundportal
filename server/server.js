@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -23,7 +24,7 @@ app.get("/", (req, res) => {
 });
 
 
-mongoose.connect("mongodb+srv://admin123:lostfound@cluster0.wes89bv.mongodb.net/lostfound?retryWrites=true&w=majority&appName=Cluster0")
+mongoose.connect(process.env.MONGO_URI)
 .then(() => {
 
     console.log("MongoDB Connected");
